@@ -5,12 +5,10 @@ using namespace std;
 // Time complexity --> O(N^2)
 
 // int majorityElement(vector<int> arr) {
-//     int ans = -1;
 
 //     for(int i=0; i<arr.size(); i++) {
 //         int element = arr[i];
 //         int count = 0;
-//         int maxCount = 0;
 
 //         for(int j=0; j<arr.size(); j++) {
 
@@ -18,12 +16,10 @@ using namespace std;
 //                 count++;
 //         }
 
-//         if(count > maxCount){
-//             maxCount = count;
-//             ans = element;
+//         if(count > arr.size()/2){
+//             return element;
 //         }   
 //     }
-//     return ans;
 // }
 
 
@@ -72,23 +68,23 @@ using namespace std;
 // Time complexity --> O(N)
 // Space complexity --> O(N)
 
-// int majorityElement(vector<int> &nums) {
-//     unordered_map<int, int> hash;
+int majorityElement(vector<int> &nums) {
+    unordered_map<int, int> hash;
 
-//     for (int i = 0; i < nums.size(); i++) {
-//         hash[nums[i]]++;
-//     }
+    for (int i = 0; i < nums.size(); i++) {
+        hash[nums[i]]++;
+    }
 
-//     int maxCount = 0;
-//     for (auto i : hash){
+    int maxCount = 0;
+    for (auto i : hash){
 
-//         if (i.second > nums.size() / 2) {
+        if (i.second > nums.size() / 2) {
 
-//             maxCount = i.first;
-//         }
-//     }
-//     return maxCount;
-// }
+            maxCount = i.first;
+        }
+    }
+    return maxCount;
+}
 
 
 
@@ -97,23 +93,23 @@ using namespace std;
 
 
 //METHOD 4: Moore's Voting Algorithm
-    int majorityElement(vector<int>& nums) {
-        int count = 0;
-        int element = 0;
+    // int majorityElement(vector<int>& nums) {
+    //     int count = 0;
+    //     int element = 0;
 
-        for(int i=0; i<nums.size(); i++) {
+    //     for(int i=0; i<nums.size(); i++) {
 
-            if(count == 0)
-                element = nums[i];
+    //         if(count == 0)
+    //             element = nums[i];
             
-            if(nums[i] == element) 
-                count++;
-            else 
-                count--;
-        }
+    //         if(nums[i] == element) 
+    //             count++;
+    //         else 
+    //             count--;
+    //     }
 
-        return element;
-    }
+    //     return element;
+    // }
 
 
 
