@@ -3,12 +3,21 @@ using namespace std;
 
 void bubbleSort(int arr[], int n) {
     
+    // for n-1 passes
     for(int i=1; i<=n-1; i++) {
 
+        int swapped = 0;
         for(int j=0; j<=n-i-1; j++) {
             
-            if(arr[j] > arr[j+1])
+            if(arr[j] > arr[j+1]){
                 swap(arr[j], arr[j+1]);
+                swapped++;
+            }
+        }
+
+        if(swapped == 0) {
+            cout << endl << "array is already sorted!";
+            break;
         }
     }
 }
