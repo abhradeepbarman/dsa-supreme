@@ -3,10 +3,13 @@ using namespace std;
 
 int solve(vector<int> arr, int target) {
 
-    //base case
+    //base case:
+    // If target is zero, no coins are needed.
     if(target == 0) {
         return 0;
     }
+
+    // If target is negative, this combination of coins is invalid.
     if(target < 0) {
         return INT_MAX;
     }
