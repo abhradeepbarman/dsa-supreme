@@ -5,8 +5,9 @@ using namespace std;
 
 int main()
 {
-    vector<int> arr= {10, 20, 30, 40};
-    int sum  = 80;
+    vector<int> arr= {12,3,7,1,6,9};
+    int n = arr.size();
+    int target  = 24;
 
     // print all triplets
     // for(int i=0; i<arr.size(); i++) {
@@ -21,15 +22,43 @@ int main()
 
 
 
-    for(int i=0; i<arr.size(); i++) {
+    //BRUTE FORCE APPROACH
+    // for(int i=0; i<arr.size(); i++) {
 
-        for(int j=i+1; j<arr.size(); j++) {
+    //     for(int j=i+1; j<arr.size(); j++) {
 
-            for(int k=j+1; k<arr.size(); k++) {
+    //         for(int k=j+1; k<arr.size(); k++) {
 
-                if(arr[i] + arr[j] + arr[k] == sum)
-                    cout << arr[i] << " " << arr[j] << " " << arr[k] << endl;
+    //             if(arr[i] + arr[j] + arr[k] == target)
+    //                 cout << arr[i] << " " << arr[j] << " " << arr[k] << endl;
                     
+    //         }
+    //     }
+    // }
+
+
+
+
+    //OPTIMAL SOLUTION (Two pointer)
+    sort(arr.begin(), arr.end());
+
+    for(int i=0; i<n-2; i++) {
+
+        int s = i+1;
+        int e = n-1;
+
+        while(s < e) {
+            int sum = arr[i] + arr[s] + arr[e];
+
+            if(sum == target) {
+                cout << arr[i] << " " << arr[s] << " " << arr[e] << endl;
+                s++, e--;
+            }
+            else if(sum < target) {
+                s++;
+            }
+            else {
+                e--;
             }
         }
     }
