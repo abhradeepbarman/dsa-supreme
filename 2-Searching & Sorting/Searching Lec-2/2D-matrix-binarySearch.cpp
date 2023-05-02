@@ -15,11 +15,13 @@ bool binarySearch(int arr[][4], int n, int m, int target) {
         int rowIndex = mid / m;
         int colIndex = mid % m;
 
-        if(arr[rowIndex][colIndex] == target) {
+        int element = arr[rowIndex][colIndex];
+
+        if(element == target) {
             // element found
             return true;
         }
-        else if(arr[rowIndex][colIndex] < target) {
+        else if(element < target) {
             s = mid + 1;
         }
         else {
