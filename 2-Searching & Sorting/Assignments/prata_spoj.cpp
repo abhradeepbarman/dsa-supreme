@@ -20,10 +20,10 @@ bool isPossible(vector<int> arr, int n, int p, int mid) {
 
 int solve(vector<int> arr, int n, int p)
 {
-    int maxi = *max_element(arr.begin(), arr.end());
+    int highestRank = *max_element(arr.begin(), arr.end());
 
     int s = 0;
-    int e = maxi * (p*(p+1)) / 2;
+    int e = highestRank * (p*(p+1)) / 2;
     int ans = -1;
 
     while(s <= e) {
