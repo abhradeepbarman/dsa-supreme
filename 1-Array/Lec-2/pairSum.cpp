@@ -21,7 +21,6 @@ int main()
 
 
     //BRUTE FORCE APPROACH
-    /*
     // outer loop will traverse on each element
     for(int i=0; i<arr.size(); i++) {
         
@@ -31,45 +30,6 @@ int main()
 
             if(arr[i] + arr[j] == target)
                 cout << arr[i] << " " << arr[j] << endl;
-        }
-    }
-    */
-
-
-   //BETTER APPROACH (Hashing)
-
-    // map<int, int> hash;
-
-    // for(int i=0; i<arr.size(); i++) {
-    //     int num = arr[i];
-    //     int more = target - num;
-
-    //     if(hash.find(more) != hash.end()) {
-    //         cout << num << " " << more << endl;
-    //     }
-    //     hash[num] = i;
-    // }
-
-
-
-    //OPTIMAL APPROACH (Two Pointer)
-    sort(arr.begin(), arr.end());
-
-    int s = 0;
-    int e = arr.size()-1;
-
-    while(s < e) {
-        int sum = arr[s] + arr[e];
-
-        if(sum == target) {
-            cout << arr[s] << " " << arr[e] << endl;
-            s++, e--;
-        }
-        else if(sum < target) {
-            s++;
-        }
-        else {
-            e--;
         }
     }
     

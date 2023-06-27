@@ -10,6 +10,7 @@ int main()
     // capacity --> returns the number of elements we can store in the vector
 
     // default size of vector --> 0
+    // default capacity of vector --> 0
     cout << arr.size() << endl;   
     cout << arr.capacity() << endl;  
 
