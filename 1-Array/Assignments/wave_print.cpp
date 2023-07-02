@@ -16,12 +16,12 @@ int main()
 
     for(int j=0; j<cols; j++) {
 
-        if(j%2 == 0) {
+        if(j%2 == 0) {      //even row --> up-down
             for(int i=0; i<rows; i++) {
                 cout << arr[i][j] << " ";
             }
         }
-        else {
+        else {              // odd row --> down-up
             for(int i=rows-1; i>=0; i--) {
                 cout << arr[i][j] << " ";
             }

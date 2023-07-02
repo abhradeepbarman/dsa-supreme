@@ -8,9 +8,10 @@ public:
     vector<int> factorial(int N){
         vector<int> ans;
         ans.push_back(1);
-        int carry = 0;
         
-        for(int i=2; i<=N; i++) {
+        for(int i=1; i<=N; i++) {
+            int carry = 0;
+
             for(int j=0; j<ans.size(); j++) {
                 int x = i * ans[j] + carry;
                 carry = x / 10;
@@ -18,18 +19,14 @@ public:
             }
             
             // carry is remaining
-            while(carry != 0){
+            while(carry){
                 ans.push_back(carry % 10);
                 carry = carry / 10;
             }
-            
-            
-            carry = 0;
         }
         
         // reverse
         reverse(ans.begin(), ans.end());
-        
         return ans;
     }
 };
