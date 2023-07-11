@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//Head Recursion
+//Tail Recursion
 
-void counting(int n) {
+void reverseCount(int n) {
 
     //Base case
     if(n == 0)
         return;
 
-    //recursive relation
-    counting(n-1);
-
-    //Processing
+    //processing
     cout << n << " ";
+
+    //recursive relation
+    reverseCount(n-1);
 }
 
 int main()
@@ -22,7 +22,7 @@ int main()
     cout << "Enter number: ";
     cin >> n;
 
-    counting(n);
+    reverseCount(n);
     
     return 0;
 }

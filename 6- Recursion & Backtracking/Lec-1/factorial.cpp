@@ -3,11 +3,11 @@ using namespace std;
 
 int factorial(int n) {
 
-    // base case
-    if(n == 1)
+    //base case
+    if(n == 0) 
         return 1;
 
-    // recursive relation
+    //recursive relation
     int ans = n * factorial(n-1);
     return ans;
 }
@@ -15,12 +15,11 @@ int factorial(int n) {
 int main()
 {
     int n;
-    cout << "Enter any number: ";
+    cout << "Enter number: ";
     cin >> n;
 
     int ans = factorial(n);
-
     cout << n << "! = " << ans << endl;
-
+    
     return 0;
 }
