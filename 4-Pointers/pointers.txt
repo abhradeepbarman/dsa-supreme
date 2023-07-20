@@ -1,0 +1,3 @@
+Practice 30 problems on codestudio :
+
+https://www.codingninjas.com/studio/guided-paths/pointers
