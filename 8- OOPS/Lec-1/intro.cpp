@@ -26,7 +26,7 @@ class Animal {
         cout << this->name << " " << this->age << " " << this->weight << endl;
     }
 
-    // Constructor -> object initialize
+    // Constructor -> object initialization
 
     //Default Constructor
     Animal() {
@@ -135,6 +135,9 @@ int main()
     // Animal dog(10);
     // Animal* cat = new Animal(20, 50);
     // Animal horse(20, 70, "Raftaar");
+
+
+
 
     //object copy
     // Animal lion(horse);
