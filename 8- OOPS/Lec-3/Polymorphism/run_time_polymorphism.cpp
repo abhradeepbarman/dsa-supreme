@@ -10,7 +10,7 @@ class Animal {
 
 
         // virtual keyword
-        void speak() {
+        virtual void speak() {
             cout << "Speaking" << endl;
         }
 };
