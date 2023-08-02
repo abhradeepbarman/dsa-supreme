@@ -17,6 +17,14 @@ class Node {
         }
 
         //TODO: write a destructor to delete a Node
+        ~Node() {
+            // Any cleanup or memory deallocation can be done here
+            // In the case of a linked list node, you may not need to deallocate memory here, as the list's destructor can handle it.
+            // However, if you have additional resources or dynamic memory allocated within each node, make sure to release them here.
+
+            // For example, if each node holds dynamically allocated memory:
+            // delete data; // Assuming data is a pointer to dynamically allocated memory
+        }
 };
 
 void print(Node* &head) {
