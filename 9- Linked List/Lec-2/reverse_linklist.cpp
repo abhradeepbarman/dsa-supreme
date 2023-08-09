@@ -127,7 +127,10 @@ Node* reverse(Node* &prev, Node* &curr) {
 
 
 // reverse a LinkList : using Loop 
-// Node* reverse(Node* prev, Node* curr) {
+// Node* reverse(Node* &head) {
+//     Node* prev = NULL;
+//     Node* curr = head;
+//     Node* forward = curr->next;
 
 //     while(curr != NULL) {
 //         Node* forward = curr->next;
