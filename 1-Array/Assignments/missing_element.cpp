@@ -19,7 +19,7 @@ using namespace std;
 // }
 
 
-//METHOD 2: sorting + swapping method
+//METHOD 2: in-place sorting
 void findMissing(int arr[], int n) {
 
     int i=0; 
