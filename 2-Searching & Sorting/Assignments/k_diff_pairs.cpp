@@ -45,6 +45,40 @@ public:
         // return ans.size();
 
 
+
+
+
+
+        //HASHMAP
+        // unordered_map<int,int> hash;
+        // set<pair<int,int>> ans;
+
+        // //storing occurrences
+        // for(int i=0; i<nums.size(); i++) {
+        //     hash[nums[i]]++;
+        // }
+
+        // for(int i=0; i<nums.size(); i++) {
+        //     int anotherElement = nums[i] + k;
+
+        //     //edge case
+        //     if(nums[i] == anotherElement) {
+        //         if(hash[nums[i]] == 1) {
+        //             continue;
+        //         }
+        //     }
+
+        //     if(hash.find(anotherElement) != hash.end()) {
+        //         ans.insert({nums[i], anotherElement});
+        //     }
+        // }
+        // return ans.size();
+
+
+
+
+
+
         // Binary Search
         sort(nums.begin(), nums.end());
         set<pair<int, int>> ans;

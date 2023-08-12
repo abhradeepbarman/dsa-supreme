@@ -22,6 +22,12 @@ bool isPossible(vector<int> arr, int n, int m, int mid) {
 }
 
 int allocateBooks(vector<int> arr, int n, int m) {
+
+    //edge case
+    if(m > n) {
+        return -1;
+    }
+
     int sum = 0;
     for(int i=0; i<n; i++) {
         sum += arr[i];
