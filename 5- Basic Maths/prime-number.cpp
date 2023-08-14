@@ -12,7 +12,7 @@ using namespace std;
 //         }
 //     }
 //     return true;
-// }
+// }  //O(n)
 
 
 //optimized
@@ -30,7 +30,7 @@ bool isPrime(int n) {
         c++;
     }
     return true;
-}
+}   //O(sqrt(n))
 
 int main()
 {

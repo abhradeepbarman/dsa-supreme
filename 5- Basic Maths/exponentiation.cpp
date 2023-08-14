@@ -21,6 +21,7 @@ int fastExponentiation(int a, int b) {
         if(b%2 != 0) {  //odd
             ans = ans * a;
         }
+        
         a = a*a;
         b>>=1;  // b=b/2
     }
