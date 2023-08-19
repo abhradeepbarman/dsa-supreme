@@ -7,6 +7,7 @@ int solve(vector<int> arr, int target) {
     if(target == 0)     return 0;
     if(target < 0)      return INT_MAX;
 
+    //Let's solve 1 case
     int mini = INT_MAX;
 
     for(int i=0; i<arr.size(); i++) {
