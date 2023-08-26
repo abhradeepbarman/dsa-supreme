@@ -1,153 +1,76 @@
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-class CircularQueue {
+class CircularQueue{
     public:
 
     int size;
     int* arr;
     int front;
     int rear;
-
-    CircularQueue(int size) {
-        this->size = size;
+    
+    CircularQueue(int n){
+        size = n;
         arr = new int[size];
-        front = 0;
-        rear = 0;
+        front = -1;
+        rear = -1;
     }
 
-    //functions
-    bool isEmpty() {
-        if(front == rear) {
-            return true;
-        }
-        else {
+    // Enqueues 'X' into the queue. Returns true if it gets pushed into the stack, and false otherwise.
+    bool enqueue(int value){
+        
+        if((front == 0 && rear == size-1) || (rear == (front - 1) % (size - 1))) {
+            //queue is full
             return false;
         }
-    }
-
-    bool isFull() {
-        if( (rear+1)%size == front) {
-            return true;
+        else if(rear == size-1 && front != 0) {
+            //circular nature
+            rear = 0;
+        }
+        else if(front == -1) {
+            //first element to insert
+            front = rear = 0;
         }
         else {
-            return false;
+            //normal flow
+            rear++; 
         }
-    }   
 
-    void enqueue(int data) {
-        if(isFull()) {
-            cout << "Queue is full" << endl;
-        } else {
-            rear = (rear + 1) % size;
-            arr[rear] = data;
-        }
+        arr[rear] = value;
+        return true;
     }
 
-    void dequeue() {
-        if(isEmpty()) {
-            cout << "Queue is empty" << endl;
+    // Dequeues top element from queue. Returns -1 if the stack is empty, otherwise returns the popped element.
+    int dequeue(){
+        
+        if(front == -1) {
+            //queue is empty
+            return -1;
         }
-        else {
-            front = (front + 1) % size;
-        }
-    }
 
-    int getFront() {
+        int ans = arr[front];
+        arr[front] = -1;
+        
         if(front == rear) {
-            cout << "Queue is empty" << endl;
+            //single element
+            front = -1;
+            rear = -1; 
+        }
+        else if(front == size-1) {
+            //circular nature
+            front = 0;
         }
         else {
-            return arr[(front+1) % size];
+            //normal flow
+            front++;
         }
+
+        return ans;
     }
-
-    int getSize() {
-        return rear - front;
-    }
-};
-
-
-//Mod Operator is a Heavy Operator. So We will not use it.
-
-class CirQueue{
-        public:
-        int size;
-        int *arr;
-        int front;
-        int rear;
-
-        CirQueue(int size) {
-                this->size = size;
-                arr = new int[size];
-                front = -1;
-                rear = -1;
-        }
-
-        void push(int data) {
-                //Queue Full
-
-                //single element case - > first element
-
-                //circular nature
-
-                //normal flow
-                //TODO: add one more condition in the QUEUE FULL if block
-                if((front == 0 && rear == size-1)) {
-                        cout << "Q is fulll, cannot insert" << endl;
-                }
-                else if(front == -1) {
-                        front = rear = 0;
-                        arr[rear] = data;
-                }
-                else if(rear == size-1 && front != 0 ) {
-                        rear = 0;
-                        arr[rear] = data;
-                }
-                else{
-                        rear++;
-                        arr[rear]= data;
-                } 
-        }
-
-        void pop() {
-                //empty check
-                //single element
-                //circular nature
-                //normal flow
-                if(front == -1) {
-                        cout << "Q is empty , cannot pop" << endl;
-                }
-                else if (front == rear) {
-                        arr[front] = -1;
-                        front = -1;
-                        rear = -1;  
-                }
-                else if(front == size-1) {
-                        front = 0;
-                }
-                else {
-                        front++;
-                }
-        }
-
 };
 
 int main()
 {
-    CircularQueue q(5);
-
-    q.enqueue(1);
-    q.enqueue(3);
-    q.enqueue(5);
-    q.enqueue(7);
     
-    q.dequeue();
-
-    q.enqueue(9);
-
-    cout << q.getFront() << endl;
-    cout << q.getSize() << endl;
-
     return 0;
 }

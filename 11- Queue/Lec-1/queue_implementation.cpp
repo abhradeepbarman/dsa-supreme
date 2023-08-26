@@ -36,7 +36,7 @@ class Queue {
         else {
             front++;
 
-            //IMPORTANT: whenever front & rear become same. that means queue is full. 
+            //IMPORTANT: whenever front & rear become same. that means queue is empty. 
             //Now start inserting from 0
             if(front == rear) {
                 front = 0;

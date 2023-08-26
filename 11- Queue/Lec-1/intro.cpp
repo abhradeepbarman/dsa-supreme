@@ -13,11 +13,11 @@ int main()
     q.push(25);
     q.push(35);
 
-    //size
-    cout << q.size() << endl;
-
     //deletion
     q.pop();
+
+    //size
+    cout << q.size() << endl;
 
     //check empty or not
     if(q.empty()) {
@@ -31,7 +31,8 @@ int main()
     //front element
     cout << q.front() << endl;
     
-
+    //back element
+    cout << q.back() << endl;
 
     return 0;
 }
