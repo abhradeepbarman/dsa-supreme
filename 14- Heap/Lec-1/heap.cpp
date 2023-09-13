@@ -11,13 +11,11 @@ class Heap {
         size = 0;
     }
 
-    void insert(int val) {
-
+    void insertion(int val) {
         size = size + 1;
         int index = size;
         arr[index] = val;
 
-        //take value to its correct pos
         while(index > 1) {
             int parent = index / 2;
 
@@ -45,28 +43,28 @@ class Heap {
         //take root node to its correct pos
         int i = 1;
         while(i < size) {
-            int leftIndex = 2*i;
-            int rightIndex = 2*i+1;
+            int left = 2*i;
+            int right = 2*i+1;
             int largest = i;
 
-            if(leftIndex < size && arr[largest] < arr[leftIndex]) {
-                largest = leftIndex;
+            if(left <= size && arr[largest] < arr[left]) {
+                largest = left;
             }
 
-            if(rightIndex < size && arr[largest] < arr[rightIndex]) {
-                largest = rightIndex;
+            if(right <= size && arr[largest] < arr[right]) {
+                largest = right;
             }
 
             if(i == largest) {
                 //already at correct pos
-                return;
+                break;
             }
             else {
                 swap(arr[i], arr[largest]);
+                i = largest;
             }
         }
     }
-
 
     void print() {
         for(int i=1; i<=size; i++) {
@@ -75,37 +73,16 @@ class Heap {
     }
 };
 
-
-void heapify(int arr[], int n, int i) {
-
-    int largest = i;
-    int left = 2*i;
-    int right = 2*i + 1;
-
-    if(left < n && arr[largest] < arr[left]) {
-        largest = left;
-    }
-
-    if(right < n && arr[largest] < arr[right]) {
-        largest == right;
-    }
-
-    if(largest != i) {
-        swap(arr[largest], arr[i]);
-        heapify(arr, n, largest);
-    }
-}
-
-
 int main()
 {
     Heap h;
-    h.insert(50);
-    h.insert(55);
-    h.insert(53);
-    h.insert(52);
-    h.insert(54);
+    h.insertion(50);
+    h.insertion(55);
+    h.insertion(53);
+    h.insertion(52);
+    h.insertion(54);
 
+    h.deletion();
     h.deletion();
 
     h.print();
