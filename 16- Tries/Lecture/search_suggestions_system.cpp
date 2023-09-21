@@ -46,6 +46,7 @@ void insertWord(TrieNode* root, string word) {
 }
 
 void printSuggestions(TrieNode* curr, vector<string>& temp, string& prefix) {
+    //base case
     if(curr->isTerminal) {
         temp.push_back(prefix);
     }
@@ -53,13 +54,13 @@ void printSuggestions(TrieNode* curr, vector<string>& temp, string& prefix) {
     //a to z tak choices de do
     for(char ch = 'a'; ch <= 'z'; ch++) {
         int index = ch - 'a';
+        TrieNode* child = curr->children[index];
 
-        TrieNode* next = curr->children[index];
-
-        if(next != NULL) {
+        if(child != NULL) {
             //if child exists
             prefix.push_back(ch);
-            printSuggestions(next, temp, prefix);
+            printSuggestions(child, temp, prefix);
+            //backtrack
             prefix.pop_back();
         }
     }
@@ -82,13 +83,13 @@ vector<vector<string> > getSuggestions(TrieNode* root, string input) {
         }
         else {
             //we will store all suggestions in this
-            vector<string> temp;
             prefix.push_back(lastCh);
+
+            vector<string> temp;
             printSuggestions(curr, temp, prefix);
             
             output.push_back(temp);
             prev = curr;
-            temp.clear();
         }
     }
 

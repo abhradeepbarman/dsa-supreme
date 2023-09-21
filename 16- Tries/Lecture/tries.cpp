@@ -68,6 +68,27 @@ bool searchWord(TrieNode* root, string word) {
     return searchWord(child, word.substr(1));
 }
 
+void deletion(TrieNode* root, string word) {
+  //base case
+  if(word.length() == 0) {
+    root->isTerminal = false;
+    return;
+  }
+
+  char ch = word[0];
+  int index = ch - 'a';
+  TrieNode* child;
+
+  if(root->children[index] != NULL) {
+    child = root->children[index];
+  }
+  else {
+    return;
+  }
+
+  deletion(child, word.substr(1));
+}
+
 int main()
 {
     TrieNode* root = new TrieNode('-');
@@ -76,6 +97,9 @@ int main()
     insertWord(root, "coder");
     insertWord(root, "codehelp");
     insertWord(root, "code");
+
+
+    deletion(root, "coder");
 
     if(searchWord(root, "coder")) {
         cout << "present" << endl;
