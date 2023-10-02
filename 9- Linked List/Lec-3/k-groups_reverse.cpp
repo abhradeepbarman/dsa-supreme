@@ -67,7 +67,7 @@ Node* reverseKNodes(Node* &head, int k)
     //Step 2: recursive call
     if(curr != NULL) {
         //we still have nodes left to reverse
-        head->next = reverseKNodes(forward, k);
+        head->next = reverseKNodes(curr, k);
     }
 
     //Step 3: return head of the modified LL
