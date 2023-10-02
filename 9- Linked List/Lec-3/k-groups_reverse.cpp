@@ -65,7 +65,7 @@ Node* reverseKNodes(Node* &head, int k)
     }
 
     //Step 2: recursive call
-    if(forward != NULL) {
+    if(curr != NULL) {
         //we still have nodes left to reverse
         head->next = reverseKNodes(forward, k);
     }
