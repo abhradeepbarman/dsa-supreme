@@ -99,13 +99,24 @@ Node* deleteLoop(Node* &head) {
         }
     }
 
+    //loop not present
+    if(fast == nullptr)
+        return head;
+
+    //get the start point of loop
     while(slow->next != fast->next) {
         slow = slow->next;
         fast = fast->next;
     }
     
     //delete loop
-    fast->next = NULL;
+    Node* startOfLoop = slow;
+    Node* temp = startOfLoop;
+    
+    while(temp->next != startOfLoop) {
+        temp = temp->next;
+    }
+    temp->next = 0;
     return head;
 }
 
