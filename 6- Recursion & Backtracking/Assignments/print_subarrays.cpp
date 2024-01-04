@@ -1,38 +1,45 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void printSubarray_util(vector<int>& arr, int s, int e) {
-
+void print(int arr[], int i, int j) {
     //base case
-    if(e == arr.size()) {
+    if( i> j)
         return;
-    }
 
-    for(int i=s; i<=e; i++) {
-        cout << arr[i] << " ";
-    }
+    cout << arr[i] << " ";
+
+    print(arr, i+1, j);
+}
+
+void printSubarray_util(int arr[], int size, int i, int j) {
+    //base case
+    if(j == size)
+        return;
+
+    print(arr, i, j);
     cout << endl;
 
-    printSubarray_util(arr, s, e+1);
+    printSubarray_util(arr, size, i, j+1);
 }
 
-void printSubarray(vector<int>& arr, int i) {
-
+void printSubarray(int arr[], int size, int i) {
     //base case
-    if(i >= arr.size()) {
+    if(i == size)
         return;
-    }
 
-    printSubarray_util(arr, i, i);
-    printSubarray(arr, i+1);
+    printSubarray_util(arr, size, i, i);
+    printSubarray(arr, size, i+1);
 }
+
+
 
 int main()
 {
-    vector<int> arr = {1,2,3};
+    int arr[] = {1,2,3, 4};
     int i = 0;
-    
-    printSubarray(arr, i);
-    
+    int size = sizeof(arr) / sizeof(int);
+
+    printSubarray(arr, size, i);
+
     return 0;
 }
