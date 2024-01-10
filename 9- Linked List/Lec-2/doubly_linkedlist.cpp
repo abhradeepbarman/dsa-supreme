@@ -138,6 +138,7 @@ void deleteAtPos(Node* &head, Node* &tail, int pos) {
         //single node
         Node* temp = head;  
         head = NULL;
+        tail = NULL;
         delete temp;
         return;
     }
@@ -148,7 +149,7 @@ void deleteAtPos(Node* &head, Node* &tail, int pos) {
         return;
     }
 
-    if(pos == 1) {
+    if(pos <= 1) {
         //delete first Node
         Node* temp = head;
         head = head->next;
@@ -160,7 +161,7 @@ void deleteAtPos(Node* &head, Node* &tail, int pos) {
 
 
 
-    if(pos == len) {
+    if(pos >= len) {
         //delete last node
         Node* temp = tail;
         tail = tail->prev;
