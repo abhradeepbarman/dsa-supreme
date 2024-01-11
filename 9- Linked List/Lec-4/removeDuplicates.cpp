@@ -38,15 +38,11 @@ void removeDuplicates(Node* &head) {
     // >1 Node
     Node* curr = head;
 
-    while(curr->next != NULL) {
-
-        if((curr->data == curr->next->data)) {
-            Node* temp = curr->next;
+    while(curr != 0) {
+        if(curr->next != 0 && curr->data == curr->next->data) {
             curr->next = curr->next->next;
-            temp->next = NULL;
-            delete temp;
         }
-        else {  
+        else {
             curr = curr->next;
         }
     }
