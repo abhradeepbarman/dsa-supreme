@@ -111,7 +111,7 @@ Node* deleteLoop(Node* &head) {
     
     //delete loop
     Node* startOfLoop = slow;
-    Node* temp = startOfLoop;
+    Node* temp = startOfLoop->next;
     
     while(temp->next != startOfLoop) {
         temp = temp->next;
