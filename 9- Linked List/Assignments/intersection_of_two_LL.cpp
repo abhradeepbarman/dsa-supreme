@@ -11,54 +11,51 @@ class ListNode {
 };
 
 class Solution {
+    int length(ListNode* head) {
+        int cnt = 0;
+
+        while(head != 0) {
+            cnt++;
+            head = head->next;
+        }
+        return cnt;
+    }
+
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode* a = headA;
-        ListNode* b = headB;
+        int len1 = length(headA);
+        int len2 = length(headB);
 
-        while(a->next && b->next) {
-            if(a == b) {
-                return a;
-            }
+        int diff = 0;
+        ListNode* ptr1 = 0;   //ptr1 will be used to store the larger linked list
+        ListNode* ptr2 = 0;   //ptr2 will be used to store the smaller linked list
 
-            a = a->next;
-            b = b->next;
-        }
-
-        if(a->next == 0 && b->next == 0 && a != b)    return 0;
-
-        if(a->next == 0) {
-            //B LL is bigger
-            // we need to find out how much bigger it is
-            int blen = 0;
-            while(b->next != 0) {
-                blen++;
-                b = b->next;
-            }
-
-            while(blen--) {
-                headB = headB->next;
-            }
+        if(len1 > len2) {
+            diff = len1 - len2;
+            ptr1 = headA;
+            ptr2 = headB;
         }
         else {
-            //A LL is bigger
-            // we need to find out how much bigger it is
-            int alen = 0;
-            while(a->next != 0) {
-                alen++;
-                a = a->next;
+            diff = len2 - len1;
+            ptr1 = headB;
+            ptr2 = headA;
+        }
+
+        //make the larger linked list move diff steps
+        while(diff != 0) {
+            ptr1 = ptr1->next;
+            diff--;
+        }
+
+        while(ptr1 != 0 && ptr2 != 0) {
+            if(ptr1 == ptr2) {
+                return ptr1;
             }
 
-            while(alen--) {
-                headA = headA->next;
-            }            
+            ptr1 = ptr1->next;
+            ptr2 = ptr2->next;
         }
-
-        while(headA != headB) {
-            headA = headA->next;
-            headB = headB->next;
-        }
-        return headA;
+        return nullptr;
     }
 };
 
