@@ -16,6 +16,49 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// class Solution {
+// public:
+//     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
+//         ListNode* prev = head;
+//         ListNode* curr = head->next;
+//         ListNode* forward = head->next->next;
+
+//         if(forward == 0)    
+//             return {-1, -1};
+        
+//         int i = 1;
+//         vector<int> cp;
+
+//         while(forward != 0) {
+
+//             if((curr->val > prev->val && curr->val > forward->val) || 
+//                 (curr->val < prev->val && curr->val < forward->val)) {
+//                     cp.push_back(i);
+//                 }
+            
+//             prev = prev->next;
+//             curr = curr->next;
+//             forward = forward->next;
+//             i++;
+//         }
+
+//         if(cp.size() <= 1)  return {-1, -1};
+
+//         int maxDis = cp[cp.size()-1] - cp[0];
+//         int minDis = INT_MAX;
+
+//         for(int i=0; i<cp.size()-1; i++) {
+//             if( (cp[i+1] - cp[i]) < minDis) {
+//                 minDis = cp[i+1] - cp[i];
+//             }
+//         }
+
+//         return {minDis, maxDis};
+//     }
+// };
+
+
+
 class Solution {
 public:
     vector<int> nodesBetweenCriticalPoints(ListNode* head) {
