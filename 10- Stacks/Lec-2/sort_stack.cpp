@@ -5,14 +5,10 @@ using namespace std;
 void insertSorted(stack<int>& s, int target) {
     
     //base case
-    if(s.empty()) {
-        s.push(target);
-        return;
-    }
-    if(s.top() >= target) {
-        s.push(target);
-        return;
-    }
+    if(s.empty() || s.top() < target) {
+		s.push(target);
+		return;
+	}
 
     int temp = s.top();
     s.pop();
