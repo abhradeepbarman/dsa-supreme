@@ -1,73 +1,87 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Stack {
-    public:
-    
-    int *arr;
+
+class twoStacks
+{
     int size;
+    int* arr;
     int top1;
     int top2;
-
-    Stack(int size) {
+    
+    public:
+    twoStacks()
+    {
+        size = 1000;
         arr = new int[size];
-        this->size = size;
-        this->top1 = -1;
-        this->top2 = size;
+        top1 = -1;
+        top2 = 1000;
     }
-
-
-    //function
-
-    void push1(int data) {
-        if(top2 - top1 == 1) {
-            cout << "Stack overflow" << endl;
+    
+    twoStacks(int n)
+    {
+        size = n;
+        arr = new int[size];
+        top1 = -1;
+        top2 = size;
+    }
+ 
+    //Function to push an integer into the stack1.
+    void push1(int x)
+    {
+        if(top2-top1 == 1) {
+            //stack full;
         }
         else {
             top1++;
-            arr[top1] = data;
-        }
-    } 
-
-    void pop1() {
-        if(top1 == -1) {
-            cout << "Stack underflow" << endl;
-        }
-        else {
-            top1--;
+            arr[top1] = x;
         }
     }
-
-    void push2(int data) {
-        if(top2 - top1 == 1) {
-            cout << "Stack overflow" << endl;
+    
+    //Function to push an integer into the stack2.
+    void push2(int x)
+    {
+       if(top2-top1 == 1) {
+            //stack full;
         }
         else {
             top2--;
-            arr[top2] = data;
+            arr[top2] = x;
         }
-    } 
-
-    void pop2() {
-        if(top2 == size) {
-            cout << "Stack underflow" << endl;
+    }
+    
+    //Function to remove an element from top of the stack1.
+    int pop1()
+    {
+        if(top1 == -1) {
+            //stack empty
+            return -1;
         }
         else {
-            top2++;
+            int element = arr[top1];
+            top1--;
+            return element;
         }
+    }
+    
+    //Function to remove an element from top of the stack2.
+    int pop2()
+    {
+       if(top2 == size) {
+           //stack empty
+           return -1;
+       }
+       else {
+           int element = arr[top2];
+           top2++;
+           return element;
+       }
     }
 };
 
+
 int main()
 {
-
-    Stack s(5);
-
-    s.push1(10);
-    s.push2(20);
-    s.push1(30);
-    s.push2(40);
-    s.push1(50);
     
     return 0;
 }
