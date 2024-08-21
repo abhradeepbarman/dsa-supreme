@@ -2,29 +2,22 @@
 using namespace std;
 
 class Solution {
-public:
-    void findMax(vector<int>& nums, int i, int sum, int& maxi) {
+    int rob_util(vector<int>& nums, int i) {
         //base case
-        if(i >= nums.size()){
-            maxi = max(maxi, sum);
-            return;
+        if(i >= nums.size()) {
+            return 0;
         }
 
-        //exclude
-        findMax(nums, i+1, sum, maxi);
+        // solve for 1 case
+        int robAmt1 = nums[i] + rob_util(nums, i+2);    // include
+        int robAmt2 = rob_util(nums, i+1);              // exclude
 
-        //include
-        sum += nums[i];
-        findMax(nums, i+2, sum, maxi);
+        return max(robAmt1, robAmt2);
     }
 
+public:
     int rob(vector<int>& nums) {
-       int i = 0;
-       int sum = 0;
-       int maxi = INT_MIN;
-
-        findMax(nums, i, sum, maxi);
-        return maxi;
+        return rob_util(nums, 0);
     }
 };
 
