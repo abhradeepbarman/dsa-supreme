@@ -3,10 +3,10 @@ using namespace std;
 
 void merge(int arr[], int s, int e) {
 
-    int mid = s+ (e-s) / 2;
+    int mid = s+(e-s)/2;
 
-    int len1 = mid - s + 1;
-    int len2 = e - mid;
+    int len1 = mid-s+1;
+    int len2 = e-mid;
 
     int* left = new int[len1];
     int* right = new int[len2];
@@ -14,14 +14,12 @@ void merge(int arr[], int s, int e) {
     //copy values
     int k = s;
     for(int i=0; i<len1; i++) {
-        left[i] = arr[k];
-        k++;
+        left[i] = arr[k++];
     }
 
     k = mid + 1;
     for(int i=0; i<len2; i++) {
-        right[i] = arr[k];
-        k++;
+        right[i] = arr[k++];
     }
 
     //merge 2 sorted arrays
@@ -30,32 +28,25 @@ void merge(int arr[], int s, int e) {
     k = s;      //main array index
 
     while(i<len1 && j<len2) {
-
-        if(left[i] < right[j]) {
-            arr[k] = left[i];
-            i++, k++;
-        }
-        else if(right[j] < left[i]) {
-            arr[k] = right[j];
-            j++, k++;
+        if(left[i] <= right[j]) {
+            arr[k++] = left[i++];
         }
         else {
-            arr[k] = left[i];
-            i++, k++;
+            arr[k++] = right[j++];
         }
     }
 
     while(i < len1) {
-        arr[k] = left[i];
-        i++, k++;
+        arr[k++] = left[i++];
     }
 
     while(j < len2) {
-        arr[k] = right[j];
-        j++, k++;
+        arr[k++] = right[j++];
     }
 
-    //TODO: delete left & right newly created array
+    // delete left & right newly created array
+    delete [] left;
+    delete [] right;
 }
 
 void mergeSort(int arr[], int s, int e) {
