@@ -11,12 +11,11 @@ void printPermutations(string& str, int i) {
 
     //swapping
     for(int j=i; j<str.length(); j++) {
-        //swap
         swap(str[i], str[j]);
-        //rec. call
+
         printPermutations(str, i+1);
-        //backtracking -- to recreate the original input string
-        swap(str[i], str[j]);
+        
+        swap(str[i], str[j]);     //backtracking -- to recreate the original input string
     }
 }
 

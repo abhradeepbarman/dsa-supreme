@@ -1,6 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// int partition(vector<int>& arr, int s, int e) {
+//   // step1: conside pivot element - first element
+//   int pivotIndex = s;
+//   int cnt = 0;
+
+//   // step2: count the numbers smaller than pivot
+//   for(int i=s+1; i<=e; i++) {
+//     if(arr[i] <= arr[pivotIndex]) {
+//       cnt++;
+//     }
+//   }
+
+//   // step3: place the pivot element at right position
+//   swap(arr[pivotIndex], arr[s+cnt]);
+//   pivotIndex = s+cnt;
+
+//   // step4: now put the smaller elements before before & greater elements after
+//   int i=s, j=e;
+
+//   while(i<pivotIndex && j>pivotIndex) {
+//     if(arr[i] <= arr[pivotIndex]) {
+//       i++;
+//     }
+//     else if(arr[j] > arr[pivotIndex]) {
+//       j--;
+//     }
+//     else {
+//       swap(arr[i++], arr[j--]);
+//     }
+//   }
+  
+//   return pivotIndex;
+// }
+
+
 int partition(int arr[], int s, int e) {
 
     int pivotIndex = s;
