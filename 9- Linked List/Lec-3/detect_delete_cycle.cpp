@@ -13,6 +13,29 @@ class Node {
     }
 };
 
+
+// Detect Loop - MAP solution
+// bool deletecLoopUsingMap(Node* head) {
+
+//     if(head == NULL) {
+//         return head;
+//     }
+
+//     map<Node*, bool> visited;
+//     Node* temp = head;
+
+//     while(temp != 0) {
+        
+//         if(visited[temp] == true) {
+//             // loop present
+//             break;
+//         }
+
+//         visited[temp] = true;
+//         temp = temp->next
+//     }
+// }
+
 //check if loop is present or not
 bool checkForLoop(Node* &head) {
     

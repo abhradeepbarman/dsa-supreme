@@ -19,10 +19,11 @@ class Node {
         this->next = NULL;
     }
 
-    //TODO: write destructor for Node
-    ~Node() {
-
-    }
+    // write destructor for Node
+    // ~Node() {
+    //     // In this case, we do not need to do anything special here
+    //     // because there is no dynamically allocated memory in the class.
+    // }
 };
 
 void print(Node* head) {
